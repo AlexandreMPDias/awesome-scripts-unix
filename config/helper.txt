@@ -1,0 +1,36 @@
+
+
+Awesome Scripts
+by Alexandre Dias
+Last update: 04/24/2019
+
+---------------------------
+
+awesome  edit  filereader  go  list  newScript  open
+
+Command: awesome
+Description: Commands in the scope of the awesome.
+Subcommands: 
+    - update: updates the git repository
+    - help: Shows the help
+Usage: awesome [subcommand] [subcommand args]
+
+Command: edit
+Description: opens a script file as background process using the [ gedit ].
+Usage: edit [ script file inside awesome/bin ]
+
+Command: go
+Description: Changes the current directory the path associated to an alias set inside [ awesome/config/path ]
+Usage: go [ any alias ]
+
+Command: open
+Description: Opens the current directory the path associated to an alias set inside [ awesome/config/path ] using nautilus
+Usage: open [ any alias ]
+
+Command: list
+Description: List the scripts inside awesome
+Usage: list
+
+Command: newScript
+Description: Creates a new Awesome Scripts. After creation, the script is already ready to go
+Usage: newScript [ script name ]

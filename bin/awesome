@@ -1,0 +1,24 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "Error: not arguments received"
+    echo "Commands: [update][help]"
+    exit 1
+fi
+
+if [ $1 == update ]; then
+    echo "Updating"
+    cd $AWESOME/..
+    git pull
+    if [ -z "$2" ]; then
+        echo
+    else
+        git add *
+        git commit -m $2
+        git push
+    fi
+    exit 0
+fi
+
+if [ $1 == help ]; then
+    cat $AWESOME/../config/helper.txt
+fi

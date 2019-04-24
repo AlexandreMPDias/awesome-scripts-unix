@@ -1,0 +1,48 @@
+
+#!/bin/bash
+# fullpath="`dirname $0`"
+
+function execute {
+    silent="$5"
+    alias="$3"
+    input="$2"
+    cmd="$1"
+    path="$4"
+    if [ $alias == $input ]; then
+        if [ -z "$silent" ] 
+        then
+            $cmd $path
+            exec bash
+            exit 0
+        else 
+            $cmd $path & 2> /dev/null
+            exit 0
+        fi
+    fi
+}
+
+inputs=()
+inputFile="$AWESOME/../config/path.txt"
+while IFS= read line
+do
+    inputs+=("$line")
+done < "$inputFile"
+
+for index in "${!inputs[@]}"; do execute $1 $2 ${inputs[$index]} $3; done
+
+inputs=()
+inputFile="$AWESOME/../config/path.txt"
+while IFS= read line
+do
+    inputs+=($line)
+done < "$inputFile"
+
+inputSize="$((${#inputs[@]}))"
+counter=0
+echo Invalid alias.
+echo -n "Valid alias are: "
+while [ $(($counter-0)) -lt $((inputSize - 0)) ]; do
+    echo -n "[${inputs[$counter]}]"
+    let counter=counter+2
+done
+echo

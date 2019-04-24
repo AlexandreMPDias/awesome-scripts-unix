@@ -1,0 +1,4 @@
+#!/bin/bash
+fullpath="`dirname $0`"
+$AWESOME/../automated/__multiple nautilus $1 silent
+exit 0

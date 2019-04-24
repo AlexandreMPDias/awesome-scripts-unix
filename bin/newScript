@@ -1,0 +1,16 @@
+
+#!/bin/bash
+
+if [ -z "$1" ] 
+then
+	echo Error. Script name is expected
+else
+	fullpath="`dirname $0`"
+	if test -f "$fullpath/$1"; then 
+		echo "Error. Script [ $1 ] already exists"
+	else 
+		touch $fullpath/$1
+		echo "#!/bin/bash" > $fullpath/$1
+		chmod +x $fullpath/$1
+	fi
+fi
