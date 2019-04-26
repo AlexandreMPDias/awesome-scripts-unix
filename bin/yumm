@@ -5,18 +5,21 @@ if [ "$1" == "--help" ]; then
     echo "Builds and then runs"
     echo "valid flags: [--r][--d][--no-package]"
     echo
-    echo "--r : Skip run"
-    echo "--d : Skip declarations"
-    echo "--no-package: Builds all packages"
+    echo "-r : Skip run"
+    echo "-d : Skip declarations"
+    echo "-b : Skip build"
+    echo "-no-package: Builds all packages"
 fi
 
 for arg in "$@"; do
-    if [[ $arg == --* ]]; then
-        if [ $arg == "--r" ]; then
+    if [[ $arg == -* ]]; then
+        if [ $arg == "-r" ]; then
             noRun="1"
-        elif [ $arg == "--d" ]; then
+        elif [ $arg == "-b" ]; then
+            noBuild="1"
+        elif [ $arg == "-d" ]; then
             noD="1"
-        elif [ $arg == "--no-package" ]; then
+        elif [ $arg == "-no-package" ]; then
             noPackage="1"
         else
             echo Invalid flag. For help, run [ yumm help ]
@@ -31,7 +34,10 @@ for arg in "$@"; do
     fi
 done
 
-if [ "$noPackage" == "1" ]; then
+if [ "$noBuild" == "1" ]; then
+    echo "No build flag is active. Skipping Build"
+    second="$first"
+elif [ "$noPackage" == "1" ]; then
     echo "[yumm] No Package selected. Building everything"
     yarn build
 elif [ -z $first ]; then
