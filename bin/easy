@@ -1,0 +1,28 @@
+#!/bin/bash
+
+function cmdNotSet {
+	echo Command not set.
+	echo "Commands for $1: $2"
+	exit 1
+}
+
+if [ -z $1 ]; then
+	echo Env not set.
+	echo Envs: [ laravel ]
+	exit 1
+fi
+
+if [ $1 == laravel ]; then
+	if [ "$2" == "reset-cache" ]; then
+		echo Resetting Cache
+		php artisan optimize:clear
+		php artisan config:clear
+		composer dump-autoload
+		exit 0
+	fi
+	cmdNotSet $1 "[reset-cache]"
+fi
+
+echo Env not set.
+echo Envs: [ laravel ]
+exit 1
