@@ -1,2 +1,2 @@
 #!/bin/bash
-$AWESOME/bin/automated/__multiple code $1
+$AWESOME/automated/__multiple code $1
