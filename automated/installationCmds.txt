@@ -1,0 +1,7 @@
+# Awesome Scripts
+if [ -d "__path__/bin" ] ; then
+    export AWESOME="__path__"
+    PATH="__path__/bin:$PATH"
+    PATH="__path__/personal_bin:$PATH"
+fi
+

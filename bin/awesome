@@ -1,9 +1,12 @@
 #!/bin/bash
 if [ -z "$1" ]; then
     echo "Error: not arguments received"
-    echo "Commands: [update][help]"
+    echo "Commands: [update][help][personal]"
     exit 1
 fi
+
+fullpath="`dirname $0`"
+personalpath="$fullpath/../personal_bin"
 
 if [ $1 == update ]; then
     echo "Updating"
@@ -17,6 +20,38 @@ if [ $1 == update ]; then
         git push
     fi
     exit 0
+fi
+
+if [ $1 == personal ]; then 
+    if [ $2 == new ]; then
+        if [ -z $3 ]; then
+            echo Expected script name. Aborting.
+            exit 1
+        fi
+        file="$personalpath/$3"
+        if test -f "$file"; then 
+		    echo "Error. Personal Script [ $1 ] already exists"
+        fi
+        touch "$file"
+        echo "#!/bin/bash" > "$file"
+		chmod +x "$file"
+        awesome personal edit $3
+    fi
+
+    if [ $2 == edit ]; then
+        if [ -z $3 ]; then
+            echo Expected script name. Aborting.
+            exit 1
+        fi
+        file="$personalpath/$3"
+        if test -f "$file"; then 
+		    gedit "$file" & > /dev/null 2>&1
+            exit 1
+        fi
+        echo "Sir, You can't edit what doesn't exist"
+        echo "-- looks left and right slowly repeatedly --"
+        echo "Aborted..."
+    fi
 fi
 
 if [ $1 == help ]; then
