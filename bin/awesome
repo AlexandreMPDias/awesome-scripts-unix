@@ -10,7 +10,7 @@ personalpath="$fullpath/../personal_bin"
 
 if [ $1 == update ]; then
     echo "Updating"
-    cd $AWESOME/..
+    cd $AWESOME
     git pull
     if [ -z "$2" ]; then
         echo

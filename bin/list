@@ -1,3 +1,8 @@
 #!/bin/bash
 
-ls $AWESOME
+echo Main
+ls $AWESOME/bin
+
+echo
+echo Personal
+ls $AWESOME/personal_bin

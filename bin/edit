@@ -1,2 +1,2 @@
 #!/bin/bash
-gedit `dirname $0`/$1 & 2> /dev/null
+gedit $AWESOME/bin/$1 & 2> /dev/null

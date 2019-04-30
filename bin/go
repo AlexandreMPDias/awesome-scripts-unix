@@ -1,3 +1,2 @@
 #!/bin/bash
-fullpath="`dirname $0`"
-$AWESOME/../automated/__multiple cd $1
+$AWESOME/bin/../automated/__multiple cd $1
