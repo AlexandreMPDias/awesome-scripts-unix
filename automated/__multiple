@@ -22,7 +22,7 @@ function execute {
 }
 
 inputs=()
-inputFile="$AWESOME/../config/path.txt"
+inputFile="$AWESOME/config/path.txt"
 while IFS= read line
 do
     inputs+=("$line")
@@ -31,7 +31,7 @@ done < "$inputFile"
 for index in "${!inputs[@]}"; do execute $1 $2 ${inputs[$index]} $3; done
 
 inputs=()
-inputFile="$AWESOME/../config/path.txt"
+inputFile="$AWESOME/config/path.txt"
 while IFS= read line
 do
     inputs+=($line)
