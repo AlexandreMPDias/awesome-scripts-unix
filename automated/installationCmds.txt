@@ -1,3 +1,4 @@
+export __AWESOME_INSTALLED__=1
 # Awesome Scripts
 if [ -d "__path__/bin" ] ; then
     export AWESOME="__path__"
