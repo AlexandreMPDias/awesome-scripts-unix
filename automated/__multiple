@@ -1,16 +1,14 @@
-
 #!/bin/bash
 # fullpath="`dirname $0`"
 
-function execute {
+function execute() {
     silent="$5"
     alias="$3"
     input="$2"
     cmd="$1"
     path="$4"
-    if [ $alias == $input ]; then
-        if [ -z "$silent" ] 
-        then
+    if [ $alias == $input ];then
+        if [ -z "$silent" ];then
             $cmd $path
             exec bash
             exit 0

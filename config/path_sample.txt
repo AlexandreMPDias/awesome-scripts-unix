@@ -1,4 +1,3 @@
-back /home/tijuk/Liber/api_dev
 front /home/tijuk/Liber/front
 home /home/tijuk
 git /home/tijuk/Git
